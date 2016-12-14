@@ -198,7 +198,8 @@ background:#c4e17f;
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li><a href="{{ url('/') }}">Home</a></li>
-                        <li><a href="{{ url('/store') }}">Store</a></li>
+                        <li><a href="{{ url('/stores') }}">Store</a></li>
+                        <li><a href="{{ url('/addition') }}">Add Product</a></li>
                         <li><a href="{{ url('/product') }}">Product</a></li>
                         <li><a href="{{ url('/') }}">About</a></li>
                         </ul>

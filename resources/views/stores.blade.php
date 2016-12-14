@@ -19,7 +19,7 @@
                         <h3>Rimz One</h3>
                         <p>122/A Kazi Nozrul Islam Avenue. Contact No. 01711111111</p>
                         <p>
-                            <a href="#" class="btn btn-primary">Show Product</a>
+                            <a href="#" class="btn btn-primary">Add New Product</a>
                         </p>
                     </div>
                 </div>

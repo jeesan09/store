@@ -3,35 +3,35 @@
 @section('content')
   <div class="row">
     <div class="col-md-6 col-md-offset-2">
-      <form class="form-horizontal" role="form">
+      <form class="form-horizontal" role="form" action="{{ url('/store') }}" method="POST">
                 
         <fieldset>
           <!-- Form Name -->
           <legend>Product Details</legend>
-
+      
           <hr class="colorgraph">
 
-          <!-- Text input-->
+          <!-- Text input
           <div class="form-group">
             <div class="col-sm-4">
             {{Form::label('p_id','Product Id')}}
             {{Form::text('p_id',null,['class' => 'form-control', 'placeholder' => 'Product Id'])}}
             </div>
-          </div>
+          </div>-->
 
           <!-- Text input-->
           <div class="form-group">
             <div class="col-sm-8">
             {{Form::label('p_name','Product Name')}}
-            {{Form::text('p_id',null,array('class'=>'form-control'))}}
+            {{Form::text('p_name',null,['class'=>'form-control', 'placeholder' => 'Product Name'])}}
             </div>
           </div>
           
           <!-- Text input-->
           <div class="form-group">
-            <div class="col-sm-8">
-            {{Form::label('p_unit','Unit')}}
-             {{Form::text('p_unit',null,array('class'=>'form-control'))}}
+          <div class="col-sm-8">
+            {{Form::label('p_price','Price')}}
+             {{Form::text('p_price',null,['class'=>'form-control', 'placeholder' => 'Price'])}}
             </div>
           </div>          
           
@@ -50,7 +50,6 @@
             {{Form::file('p_img',null,['class' => 'form-control', 'placeholder' => 'Image', 'accept' => 'image/*'])}}
             </div>
           </div>
-
           <!-- Text input
           <div class="form-group">
             <label class="col-sm-3 control-label" for="textinput">Price</label>
@@ -61,6 +60,7 @@
 
           <hr class="colorgraph">
           
+<input type="hidden" name="_token" value="{{ csrf_token() }}">
           <div class="form-group">
             <div class="col-sm-offset-8 col-sm-4">
             {{Form::submit('Add Product', array('class' => 'btn btn-primary btn-block'))}}

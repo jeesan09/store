@@ -20,7 +20,8 @@ class productController extends Controller
      */
     public function index()
     {
-         return view('product');
+        $products = Product_model::all();
+        return view('product',['products' => $products]);
     }
 
     /**
@@ -42,17 +43,13 @@ class productController extends Controller
     public function store(Request $request)
 
     {   
-       
-     
-       
-            $table= new Product_model;
-
-            $table->p_name=$request->p_name;
-            $table->p_unit=$request->p_unit;
-            $table->p_description=$request->p_description;
-            $table->p_img=$request->p_img;
-            $table->save();
-            return Redirect::to('/home');
+       $table= new Product_model;
+        $table->p_name=$request->input('p_name');
+        $table->p_price=$request->input('p_price');
+        $table->p_description=$request->input('p_description');
+        $table->p_img=$request->input('p_img');
+        $table->save();
+        return Redirect::to('/product');
         
           
     }
@@ -63,9 +60,10 @@ class productController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        //
+        //$table= Product_model::all();
+        //return view("product")->withProduct_models($table);
     }
 
     /**

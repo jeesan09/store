@@ -7,8 +7,59 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Products</div>
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/product') }}">
+                    <form class="form-horizontal" role="form" method="GET-HEAD" action="{{ url('/product') }}">
                         {{ csrf_field() }}
+                      
+                        <div class="box-content">
+
+                            <table class="table table-striped table-bordered bootstrap-datatable datatable">
+                                <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Price</th>
+                                    <th>Description</th>
+                                    <th>Image</th>
+                                    <th>Delete</th>
+                                    <th>Edit</th>
+                                            
+                                </tr>
+                                </thead>   
+                                    <tbody>
+                                        @foreach($products as $product)
+                                        <tr>
+                                            <td>{{ $product->p_id }}</td>
+                                            <td>{{ $product->p_name }}</td>
+                                            <td>{{ $product->p_price }}</td>
+                                            <td>{{ $product->p_description }}</td>
+                                            <td>{{ $product->p_img }}</td>
+                                            <td><button class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-trash"></span> Delete</button> </td>
+                                            <td><button class="btn btn-warning btn-xs"><span class="glyphicon glyphicon-pencil"></span> Edit</button> </td>
+                                        </tr>
+                                         
+                                        @endforeach   
+
+                                    </tbody>
+                                </table> 
+                                 @foreach($products as $product)
+                                        <div class="col-md-3 col-sm-6 hero-feature">
+                                            <div class="thumbnail">
+                                                  <img src="{{ $product->p_img }}" class="img-thumbnail" 
+         alt="">
+                                                <div class="caption">
+                                                    <h3>{{ $product->p_name }}</h3>
+                                                    <p>{{ $product->p_description }}</p>
+                                                    <p>{{ $product->p_price }}</p>
+                                                    <p>
+                                                        <a href="#" class="btn btn-danger">Delete</a>
+                                                        <a href="#" class="btn btn-warning">Edit</a>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                              @endforeach             
+                            </div>
+                        </div><!--/span-->
 
                     </form>
                 </div>

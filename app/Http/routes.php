@@ -17,7 +17,7 @@ Route::get('/', function () {
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
-Route::resource('/store', 'storeController@create');
+Route::resource('/stores', 'storeController@create');
 Route::resource('/product', 'productController@index');
-Route::get('addition','productController@create');
-Route::post('store','productController@store');
+Route::resource('/addition','productController@create');
+Route::resource('/store','productController@store');
